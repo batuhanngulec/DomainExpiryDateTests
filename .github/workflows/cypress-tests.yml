@@ -12,17 +12,10 @@ jobs:
 
     - name: Get JSON secret
       id: get_json
-      run: echo "${{ secrets.HOTEL_DOMAINS }}" > hotel_domains.json
+      run: echo '${{ secrets.DOMAINS }}' > cypress.env.json
 
-    - name: Parse JSON and use in script
-      run: |
-        # Install jq to parse JSON
-        sudo apt-get install -y jq
-        
-        # Read JSON and use in script
-        DOMAIN_LIST=$(cat hotel_domains.json | jq -r '.[]')
-        
-        echo "Domains:"
-        for domain in $DOMAIN_LIST; do
-          echo " - $domain"
-        done
+    - name: Install dependencies
+      run: npm install
+
+    - name: Run Cypress tests
+      run: npx cypress run
