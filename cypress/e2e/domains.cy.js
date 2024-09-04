@@ -9,13 +9,16 @@ describe('Domain Expiry Date Check', () => {
       // Target the "Expires On" field
       cy.get('.queryResponseBodyRow').contains('Expires On').parent().find('.queryResponseBodyValue').then(($expiryDateElement) => {
         const expiryDateText = $expiryDateElement.text().trim();
+        
+        // Tarihi "YYYY-MM-DD" formatında olduğu için doğrudan Date nesnesine dönüştürüyoruz
         const expiryDate = new Date(expiryDateText);
 
         const currentDate = new Date();
-        const sixtyDaysFromNow = new Date();
-        sixtyDaysFromNow.setDate(currentDate.getDate() + 15); // 15 gün sonra
+        const fifteenDaysFromNow = new Date();
+        fifteenDaysFromNow.setDate(currentDate.getDate() + 15); // 15 gün sonrası
 
-        if (expiryDate < sixtyDaysFromNow) {
+        // Yıl, ay ve gün karşılaştırması yapıyoruz
+        if (expiryDate.getTime() < fifteenDaysFromNow.getTime()) {
           console.log(`${domain} 15 gün içinde sona eriyor!`); // Tarayıcı konsoluna log yazdır
           throw new Error(`${domain} 15 gün içinde sona eriyor!`);
         } else {
