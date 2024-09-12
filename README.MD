@@ -30,7 +30,6 @@ To get started with the project, follow these steps:
     - `DOMAINS`: List of domains to check (e.g., `example.com, example.net`). Used by Cypress to test domain expiry dates.
 
 ## Running Tests
-    To run the Cypress tests, use the following command:
 
     ```bash
     npx cypress open
