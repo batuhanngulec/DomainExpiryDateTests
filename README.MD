@@ -29,11 +29,11 @@ To get started with the project, follow these steps:
 4. **Set up Environment Variables:**
     - `DOMAINS`: List of domains to check (e.g., `example.com, example.net`). Used by Cypress to test domain expiry dates.
 
-## Running Tests
-
-    ```bash
-    npx cypress open
-    ```
+### Running the Tests
+To run the Cypress tests, use the following command:
+```bash
+npx cypress open
+ ```
 
 ## Notes
 
