@@ -10,19 +10,19 @@ describe('Domain Expiry Date Check', () => {
       cy.get('.queryResponseBodyRow').contains('Expires On').parent().find('.queryResponseBodyValue').then(($expiryDateElement) => {
         const expiryDateText = $expiryDateElement.text().trim();
         
-        // Tarihi "YYYY-MM-DD" formatında olduğu için doğrudan Date nesnesine dönüştürüyoruz
+        // Convert the date to a Date object since it's in "YYYY-MM-DD" format
         const expiryDate = new Date(expiryDateText);
 
         const currentDate = new Date();
         const tenDaysFromNow = new Date();
-        tenDaysFromNow.setDate(currentDate.getDate() + 10); // 10 gün sonrası
+        tenDaysFromNow.setDate(currentDate.getDate() + 10); // 10 days from now
 
         // Yıl, ay ve gün karşılaştırması yapıyoruz
         if (expiryDate.getTime() < tenDaysFromNow.getTime()) {
-          console.log(`${domain} 10 gün içinde sona eriyor!`); // Tarayıcı konsoluna log yazdır
-          throw new Error(`${domain} 10 gün içinde sona eriyor!`);
+          console.log(`${domain} is expiring in 10 days!`); // Log to browser console
+          throw new Error(`${domain} is expiring in 10 days!`);
         } else {
-          console.log(`${domain} güvenli, son kullanma tarihi 10 günden fazla bir süre uzakta.`); // Tarayıcı konsoluna log yazdır
+          console.log(`${domain} is safe, expiration date is more than 10 days away.`); // Log to browser console
         }
       });
     });
