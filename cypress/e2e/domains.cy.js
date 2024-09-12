@@ -15,14 +15,14 @@ describe('Domain Expiry Date Check', () => {
 
         const currentDate = new Date();
         const fifteenDaysFromNow = new Date();
-        fifteenDaysFromNow.setDate(currentDate.getDate() + 15); // 15 gün sonrası
+        fifteenDaysFromNow.setDate(currentDate.getDate() + 10); // 10 gün sonrası
 
         // Yıl, ay ve gün karşılaştırması yapıyoruz
         if (expiryDate.getTime() < fifteenDaysFromNow.getTime()) {
-          console.log(`${domain} 15 gün içinde sona eriyor!`); // Tarayıcı konsoluna log yazdır
-          throw new Error(`${domain} 15 gün içinde sona eriyor!`);
+          console.log(`${domain} 10 gün içinde sona eriyor!`); // Tarayıcı konsoluna log yazdır
+          throw new Error(`${domain} 10 gün içinde sona eriyor!`);
         } else {
-          console.log(`${domain} güvenli, son kullanma tarihi 15 günden fazla bir süre uzakta.`); // Tarayıcı konsoluna log yazdır
+          console.log(`${domain} güvenli, son kullanma tarihi 10 günden fazla bir süre uzakta.`); // Tarayıcı konsoluna log yazdır
         }
       });
     });
