@@ -14,11 +14,11 @@ describe('Domain Expiry Date Check', () => {
         const expiryDate = new Date(expiryDateText);
 
         const currentDate = new Date();
-        const fifteenDaysFromNow = new Date();
-        fifteenDaysFromNow.setDate(currentDate.getDate() + 10); // 10 gün sonrası
+        const tenDaysFromNow = new Date();
+        tenDaysFromNow.setDate(currentDate.getDate() + 10); // 10 gün sonrası
 
         // Yıl, ay ve gün karşılaştırması yapıyoruz
-        if (expiryDate.getTime() < fifteenDaysFromNow.getTime()) {
+        if (expiryDate.getTime() < tenDaysFromNow.getTime()) {
           console.log(`${domain} 10 gün içinde sona eriyor!`); // Tarayıcı konsoluna log yazdır
           throw new Error(`${domain} 10 gün içinde sona eriyor!`);
         } else {
