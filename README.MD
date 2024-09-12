@@ -14,7 +14,7 @@ To get started with the project, follow these steps:
     ```
 2. Navigate to the project directory:
     ```bash
-    cd SwagLabsTest
+    cd DomainExpiryDateTests
     ```
 3. Install the project dependencies:
     ```bash
@@ -31,6 +31,7 @@ To get started with the project, follow these steps:
 
 ## Running Tests
     To run the Cypress tests, use the following command:
+
     ```bash
     npx cypress open
     ```
